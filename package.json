@@ -1,0 +1,27 @@
+{
+    "name": "dizzy-store",
+    "description": "Simple state management library for JS apps.",
+    "version": "1.0.0",
+    "main": "dist/dizzy-store-esm.js",
+    "scripts": {
+        "build": "webpack --config webpack.config.js --mode production",
+        "test": "jest"
+    },
+    "repository": "github:eatthatpie/dizzy-store",
+    "author": "eatthatpie <tomek.pugn@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/eatthatpie/dizzy-store/issues"
+    },
+    "homepage": "https://github.com/eatthatpie/dizzy-store",
+    "devDependencies": {
+        "@types/jest": "^24.0.15",
+        "jest": "^24.8.0",
+        "ts-jest": "^24.0.2",
+        "ts-loader": "^5.3.3",
+        "typescript": "^3.5.3",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.6",
+        "webpack-dev-server": "^3.7.2"
+    }
+}
