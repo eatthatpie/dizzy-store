@@ -18,7 +18,7 @@ or, include `/dist/dizzy-store.min.js` file:
 <script src="dizzy-store.min.js"></script>
 ```
 
-Then you can access Store, StoreModule and StoreSubscription via DizzyStore variable:
+Then you can access Store via DizzyStore variable:
 
 ```js
 var store = new DizzyStore.Store();
@@ -62,7 +62,7 @@ console.log(testValue); // output: 2000
 
 ## Core concepts
 
-In dizzy-store there is no single. Instead every group of state-dispatchers is divided into modules.
+In dizzy-store there is no single state management object. Instead every group of state/dispatchers is divided into modules.
 
 You cannot create a module directly. Instead register module via store's `registerModule` method:
 
@@ -123,7 +123,7 @@ store.get('moduleName.getterFunctionName', { optionalParams });
 
 ## Dispatchers
 
-Each module's state is immutable yet you can change the state by module's dispatcher. Effects of `setState` method called in dispatcher body merge with current state.
+Each module's state is immutable yet you can change the state by module's dispatcher. Effects of `setState` method called in dispatcher body merge with the current state.
 
 ```js
 {
@@ -174,20 +174,20 @@ store.dispatch('exampleModule.increaseTestValue', 72);
 console.log(store.get('exampleModule.keepedValue')); // output: 12
 ```
 
-You access the getter by calling store's `dispatch` method:
+You access the dispatcher by calling store's `dispatch` method:
 
 ```js
 store.dispatch('moduleName.dispatcherFunctionName', { params });
 ```
 
-## Subscribing to a store module
+## Subscribing to the store module
 
 ### Listeners
 
 Listeners can be subscribed to getters. Each listener should implement two methods:
 
-`storeData` -- is fired on subscription,
-`storeDataChange` -- is fired each time any of dispatchers associated with getter's module is called.
+`storeData` -- is fired on subscription,  
+`storeDataChange` -- is fired each time any dispatcher associated with getter's module is called.
 
 Example:
 
@@ -228,6 +228,7 @@ store.registerModule('test', {
     }
 });
     
+// When subscribed to single getter the data argument contains the getter value. So the someValue() getter value will be placed in data.someValue
 store.subscribe('test.testValue').to(subscriber, data => {
     return {
         mappedData: data
@@ -279,6 +280,7 @@ store.registerModule('test', {
     }
 });
     
+// Note, that when subscribed to more than one getter the data argument contains the getters values mapped by module's name. So the someValue() getter value will be placed in data.moduleName.someValue
 store.subscribe(['test.testValue', 'test.factor']).to(subscriber, data => {
     return {
         mappedValue: data.test.testValue,
