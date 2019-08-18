@@ -1,5 +1,5 @@
 webpack.config.js
-tsconfig.js
-jest.config.ts
+tsconfig.json
+jest.config.js
 index.ts
 src
