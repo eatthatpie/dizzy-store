@@ -1,7 +1,7 @@
 {
     "name": "dizzy-store",
     "description": "Simple state management library for JS apps.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "main": "dist/dizzy-store.esm.js",
     "scripts": {
         "build": "webpack --config webpack.config.js --mode production",
