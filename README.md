@@ -9,7 +9,7 @@ Simple state management library for JS apps.
 ```npm i --save dizzy-store```
 
 ```js
-import { Store, StoreModule, StoreSubscription } from 'dizzy-store';
+import { Store } from 'dizzy-store';
 ```
 
 or, include `/dist/dizzy-store.min.js` file:
