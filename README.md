@@ -6,27 +6,28 @@ Simple state management library for JS apps.
 
 ### Instalation
 
-```npm i --save dizzy-store```
+```sh
+npm i --save dizzy-store
+```
 
 ```js
 import { Store } from 'dizzy-store';
 ```
 
-or, include `/dist/dizzy-store.min.js` file:
+You can also simply include dizzy-store in html file:
 
 ```html
 <script src="dizzy-store.min.js"></script>
-```
-
-Then you can access Store via DizzyStore variable:
-
-```js
+<script>
 var store = new DizzyStore.Store();
+</script>
 ```
 
 ### Basic usage
 
 ```js
+import { Store } from 'dizzy-store';
+
 // create store object
 const store = new Store();
 
